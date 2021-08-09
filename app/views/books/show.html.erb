@@ -27,7 +27,12 @@
           <% end %>
         </tr>
       </table>
-      <%= render 'books/comment', book: @book,book_comment: @book_comment %>
+      <div id="comments_area">
+        <%= render partial: 'book_comments/index', locals: {comments: @comments %>
+      </div>
+      <% if user_signed_in? %>
+        <%= render partial: 'book_comments/form', locals: {book: @book, book_comment: @book_comment} %>
+      <% end %>
     </div>
   </div>
 </div>
